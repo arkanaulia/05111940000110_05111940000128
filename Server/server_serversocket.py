@@ -1,5 +1,6 @@
 import socket
 import sys
+import os
 
 IP = socket.gethostbyname(socket.gethostname())
 PORT = 4455
@@ -30,7 +31,10 @@ def main():
             print(f"[RECV] Receiving the filename.")
             print(filename)
             """file = open(filename, "w")"""
-            file_path = "C:/AYO NGODING/Progjar/Tugas1/Server/Dataset/"+ filename 
+            file_path = "C:/Users/ASUS/Documents/Raffi/SEMESTER 6/PROGJAR F/apdet_arkan/Server/Dataset/"+ filename
+            size = str(os.path.getsize(file_path))
+            header = "file-name: "+ filename +",\n"+"file-size: "+ size + ",\n\n\n"
+            conn.send(header.encode(FORMAT))
             with open(file_path, "rb") as readfile:
                 while True:
                     # read the bytes from the file
@@ -39,12 +43,6 @@ def main():
                         print('BERES')
                         break
                     conn.sendall(bytes_read)
-            """ Receiving the file data from the client. """
-            """data = conn.recv(SIZE).decode(FORMAT)
-            print(f"[RECV] Receiving the file data.")
-            file.write(data)
-            conn.send("File data received".encode(FORMAT))"""
-
 
     except KeyboardInterrupt:        
         server.close()

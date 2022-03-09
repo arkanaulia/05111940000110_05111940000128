@@ -14,16 +14,11 @@ def main():
     """ Connecting to the server. """
     client.connect(ADDR)
 
-    """ Opening and reading the file data. """
-    """file = open("data/yt.txt", "r")
-    data = file.read()"""
-
     nama = input("")
     alamat = nama.split()
     """ Sending the filename to the server. """
     client.send(alamat[1].encode(FORMAT))
-    # msg = client.recv(SIZE).decode(FORMAT)
-    # print(f"[SERVER]: {msg}")
+
 
     """ Receiving the file data from the server. """
     # data = client.recv(SIZE).decode(FORMAT)
@@ -39,15 +34,6 @@ def main():
             if not bytes_read:
                 print('BERES')
                 break
-            # write to the file the bytes we just received
-            # print(bytes_read)
-
-    """ Sending the file data to the server. """
-    """client.send(data.encode(FORMAT))
-    msg = client.recv(SIZE).decode(FORMAT)
-    print(f"[SERVER]: {msg}")"""
-
- 
 
 
 if __name__ == "__main__":
