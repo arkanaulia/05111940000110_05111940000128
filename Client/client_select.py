@@ -23,6 +23,8 @@ try:
         print(f"[RECV] Receiving the file data.")
 
         file_name = alamat[1].strip("\n")
+        header = client.recv(SIZE).decode(FORMAT)
+        print(header)
         with open(file_name, "wb") as readfile:
             while True:
                 # read 1024 bytes from the socket (receive)
