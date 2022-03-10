@@ -31,7 +31,7 @@ try:
                 bytes_read = client.recv(1024)
                 # client_socket.settimeout(2)
                 if not bytes_read:
-                    print('BERES')
+                    print('FILE SENT')
                     break
                 # write to the file the bytes we just received
                 # print(bytes_read)

@@ -31,7 +31,7 @@ def main():
             print(f"[RECV] Receiving the filename.")
             print(filename)
             """file = open(filename, "w")"""
-            file_path = "C:/Users/ASUS/Documents/Raffi/SEMESTER 6/PROGJAR F/apdet_arkan/Server/Dataset/"+ filename
+            file_path = "C:/AYO NGODING/Progjar/05111940000110_05111940000128/Server/Dataset/"+ filename
             size = str(os.path.getsize(file_path))
             header = "file-name: "+ filename +",\n"+"file-size: "+ size + ",\n\n\n"
             conn.send(header.encode(FORMAT))
@@ -40,7 +40,7 @@ def main():
                     # read the bytes from the file
                     bytes_read = readfile.read(1024)
                     if not bytes_read:
-                        print('BERES')
+                        print('FILE SENT')
                         break
                     conn.sendall(bytes_read)
 

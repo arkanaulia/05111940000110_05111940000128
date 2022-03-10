@@ -34,7 +34,7 @@ def main():
             # client_socket.settimeout(2)
             readfile.write(bytes_read)
             if not bytes_read:
-                print('BERES')
+                print('FILE SENT')
                 break
 
 
